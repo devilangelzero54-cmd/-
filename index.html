@@ -45,6 +45,31 @@
   </style>
 </head>
 <body>
+  <!-- 白フラッシュ用 -->
+<div class="flash-in" id="flashIn"></div>
+
+<style>
+.flash-in {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  z-index: 9999; /* すべての要素の上に */
+}
+.flash-in.off {
+  opacity: 0;
+}
+</style>
+
+<script>
+window.addEventListener('load', () => {
+  const f = document.getElementById('flashIn');
+  setTimeout(() => f.classList.add('off'), 50);
+  setTimeout(() => f.remove(), 800);
+});
+</script>
   <h1>❄️ 冬のギャラリー ❄️</h1>
   <div class="gallery-container" id="gallery">
     <img src="images/winter_001.png" alt="winter1">
